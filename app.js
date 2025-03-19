@@ -30,16 +30,42 @@ document.addEventListener('DOMContentLoaded', () => {
     let fireEffectTimeout = null;
     let fireParticlesInterval = null;
     
+    // Debug logging
+    function debugLog(message) {
+        console.log(message);
+        const debugConsole = document.getElementById('debug-console');
+        if (debugConsole) {
+            debugConsole.innerHTML += message + '<br>';
+            debugConsole.scrollTop = debugConsole.scrollHeight;
+        }
+    }
+    
     // Initialize
     function init() {
-        console.log("Initializing bunny breeding simulator...");
+        debugLog("Initializing bunny breeding simulator...");
+        
+        // Log element existence to help with debugging
+        debugLog("Start button exists: " + !!startButton);
+        debugLog("Restart button exists: " + !!restartButton);
         
         // Set up the photos
         setupPhotos();
         
-        // Event Listeners
-        startButton.addEventListener('click', startPounding);
-        restartButton.addEventListener('click', restart);
+        // Event Listeners - use direct function binding to ensure they work
+        if (startButton) {
+            startButton.onclick = startPounding;
+            debugLog("Start button click handler attached");
+        }
+        
+        if (restartButton) {
+            restartButton.onclick = restart;
+            debugLog("Restart button click handler attached");
+        }
+        
+        // Custom event handling for more reliable button clicks
+        document.addEventListener('start-game', startPounding);
+        document.addEventListener('restart-game', restart);
+        debugLog("Custom event handlers attached");
         
         // Add multiple event listeners for spacebar to ensure it works
         document.addEventListener('keydown', handleKeyPress);
@@ -57,14 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Setup photos
     function setupPhotos() {
-        console.log("Setting up photos...");
+        debugLog("Setting up photos...");
         
-        // Use the photos from the photo directory
-        photoA.style.backgroundImage = `url('photo/photo_a.png')`;
-        photoB.style.backgroundImage = `url('photo/photo_b.png')`;
-        photoC.style.backgroundImage = `url('photo/photo_c.png')`;
+        // Use absolute paths for the photos to avoid routing issues
+        photoA.style.backgroundImage = `url('/photo/photo_a.png')`;
+        photoB.style.backgroundImage = `url('/photo/photo_b.png')`;
+        photoC.style.backgroundImage = `url('/photo/photo_c.png')`;
         
-        console.log("Photos set up successfully");
+        debugLog("Photos set up successfully");
     }
     
     // Apply fire effect to spacebar
@@ -121,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Start pounding
     function startPounding() {
-        console.log("Starting breeding simulation...");
+        debugLog("Starting breeding simulation...");
         
         // Hide start overlay and show spacebar overlay
         startOverlay.classList.remove('active');
@@ -201,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle keyboard input
     function handleKeyPress(e) {
         // Log key press for debugging
-        console.log("Key pressed:", e.code);
+        debugLog("Key pressed: " + e.code);
         
         if (!isPounding) return;
         
@@ -294,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentTime = Date.now();
             const timeSinceLastPress = currentTime - lastSpacebarPress;
             
-            console.log("Time since last press:", timeSinceLastPress);
+            debugLog("Time since last press: " + timeSinceLastPress);
             
             // Show overlay during pause
             if (timeSinceLastPress > 1000) {
@@ -309,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             if (timeSinceLastPress > 2000) {
-                console.log("Inactivity detected, finishing...");
+                debugLog("Inactivity detected, finishing...");
                 finishPounding();
             }
         }, 200); // Check every 200ms for performance
@@ -327,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Finish pounding
     function finishPounding() {
-        console.log("Finishing pounding");
+        debugLog("Finishing pounding");
         isPounding = false;
         
         // Clear timers and effects
@@ -381,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Restart game
     function restart() {
-        console.log("Restarting simulation");
+        debugLog("Restarting simulation");
         
         // Reset overlays
         resultsOverlay.classList.remove('active');

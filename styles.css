@@ -55,21 +55,21 @@ body {
     background-color: #1a1a1a;
 }
 
-/* Using the actual photos from /photo directory */
+/* Using the actual photos from /photo directory with absolute paths */
 #photo-a {
-    background-image: url('photo/photo_a.png');
+    background-image: url('/photo/photo_a.png');
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 #photo-b {
-    background-image: url('photo/photo_b.png');
+    background-image: url('/photo/photo_b.png');
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 #photo-c {
-    background-image: url('photo/photo_c.png');
+    background-image: url('/photo/photo_c.png');
     background-position: center center;
     background-repeat: no-repeat;
 }

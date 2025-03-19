@@ -1,0 +1,36 @@
+BUNNY BREEDING SIMULATOR - IMAGE INSTRUCTIONS
+==========================================
+
+For the best experience with the Bunny Breeding Simulator, you should save three images with specific names:
+
+1. photo-a.jpg - The first image in the breeding sequence
+   This should be an image of a rabbit or bunny in a starting position.
+
+2. photo-b.jpg - The second image in the breeding sequence
+   This should be a similar image to the first, but showing movement or a different position.
+   This image is toggled when pressing spacebar rapidly.
+
+3. photo-c.jpg - The final image in the breeding sequence
+   This should be the "completion" image shown at the end.
+
+If you don't have all three images:
+- The simulator will still work with just photo-a.jpg
+- We'll automatically apply slight variations to photo-a.jpg to simulate movement
+- For the best experience, use all three images
+
+Image Tips:
+- Use JPG format for all images
+- For best performance, keep image file sizes under 1MB each
+- Images should be at least 800x600 pixels for good quality
+- The simulator will scale images to fit the screen
+
+Saving Images:
+1. Right-click on your image file
+2. Select "Save As"
+3. Navigate to the same folder as this simulator
+4. Name the file exactly as specified above (photo-a.jpg, etc.)
+5. Click Save
+
+After saving your images, restart the server script to see your changes!
+
+Enjoy breeding your bunnies! 

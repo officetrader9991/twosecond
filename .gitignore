@@ -1,0 +1,23 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
+
+# Node modules (if you add any in the future)
+node_modules/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Optional: Ignore photo placeholders
+*.placeholder
+
+# Optional: Ignore actual sensitive images
+# Uncomment if you don't want to commit the actual breeding photos
+# photo-*.jpg 

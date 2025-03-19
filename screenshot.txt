@@ -1,0 +1,6 @@
+This is a placeholder for the screenshot of the website.
+
+Once the website is deployed, take a screenshot of the homepage showing the rabbit game
+and replace the 'screenshot.txt' file with 'screenshot.png' containing the actual image.
+
+The screenshot will be displayed in the README.md file. 
